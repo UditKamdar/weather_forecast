@@ -15,16 +15,16 @@ print("working")
 def predict1():
     # horizon = int(request.json['horizon'])
     
-    future2 = maxT.make_future_dataframe(periods=365)
-    forecast2 = maxT.predict(future2)
+#     future2 = maxT.make_future_dataframe(periods=365)
+#     forecast2 = maxT.predict(future2)
     
-    data = forecast2[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].head()
+#     data = forecast2[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].head()
     
-    # data = forecast2[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
-    ret = data.to_json(orient='records', date_format='iso')
-    print(ret)
+#     # data = forecast2[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
+#     ret = data.to_json(orient='records', date_format='iso')
+#     print(ret)
     
-    return ret
+    return "hey"
 # running REST interface, port=3000 for direct test
 
 @app.route('/agriculture-assistance.herokuapp.com/api',methods=['GET'])
@@ -35,4 +35,4 @@ def predict():
     return jsonify(d)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3000)
+    app.run(debug=True)
