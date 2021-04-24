@@ -17,7 +17,7 @@ print("working")
 @app.route('/')
 def home():
     print("working good")
-    return "<h1>HIIIII</h1>
+    return "<h1>HIIIII</h1>"
 #     return render_template('index.html',prediction_text='The second batting team will win the match')
 
 @app.route('/api')
