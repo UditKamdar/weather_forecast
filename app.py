@@ -21,15 +21,36 @@ def home():
     return "<h1>HIIIII</h1>"
 #     return render_template('index.html',prediction_text='The second batting team will win the match')
 
-@app.route('/api')
+@app.route('/api',methods=['GET'])
 def home1():
+    maxT = pickle.load(open('forecast_model_maxT.pkl', 'rb'))
+    minT = pickle.load(open('forecast_model_minT.pkl', 'rb'))
+    d={}
+    d['Query'] = str(request.args['Query'])
     print("working good")
-    future2 = maxT.make_future_dataframe(periods=365)
-    forecast = maxT.predict(future2)
+    future_max = maxT.make_future_dataframe(periods=365)
+    forecast = maxT.predict(future_max)
     df1 = pd.DataFrame(forecast)
     df2 = df1[['ds','yhat']]
     df2['ds'] = df2['ds'].astype(str)
-    return "<h3>BYRRRR</h3>"
+    
+    future_min = minT.make_future_dataframe(periods=365)
+    forecast_m = minT.predict(future_min)
+    df1_m = pd.DataFrame(forecast_m)
+    df2_m = df1_m[['ds','yhat']]
+    df2_m['ds'] = df2_m['ds'].astype(str)
+    
+    
+    for i in range(len(df2)):
+    if(d['Query'] == df2['ds'][i]):
+        print("Min Temperature : " + str(df2_m['yhat'][i]))
+        print("Max Temperature : " + str(df2['yhat'][i]))
+        dict={}
+        dict['Max_temp']=str(df2['yhat'][i])
+        dict['Min_temp']=str(df2_m['yhat'][i])
+
+    return jsonify(dict)
+
 #     return render_template('index.html',prediction_text='Hello')
 @app.route('/hi')
 def home12():
