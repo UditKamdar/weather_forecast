@@ -1,14 +1,13 @@
 import numpy as np
 import pickle
 from flask import Flask, jsonify, request ,render_template
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 
 #import libraries
-const port = Process.env.PORT || 3000
 
 #Initialize the flask App
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 maxT = pickle.load(open('forecast_model_maxT.pkl', 'rb'))
 minT = pickle.load(open('forecast_model_minT.pkl', 'rb'))
 
