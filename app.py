@@ -1,3 +1,4 @@
+import pandas as pd
 import numpy as np
 import pickle
 from flask import Flask, jsonify, request ,render_template
@@ -23,12 +24,23 @@ def home():
 @app.route('/api')
 def home1():
     print("working good")
+    future2 = maxT.make_future_dataframe(periods=365)
+    forecast = maxT.predict(future2)
+    df1 = pd.DataFrame(forecast)
+    df2 = df1[['ds','yhat']]
+    df2['ds'] = df2['ds'].astype(str)
     return "<h3>BYRRRR</h3>"
 #     return render_template('index.html',prediction_text='Hello')
 @app.route('/hi')
 def home12():
     print("working good")
     return "HIIII"
+@app.route('/trial')
+def trial():
+    d={}
+    d['Query'] = str(request.args['Query'])
+    return jsonify(d)
+
 if __name__ == "__main__":
     app.run()
 #To use the predict button in our web-app
