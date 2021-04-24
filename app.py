@@ -11,6 +11,9 @@ minT = pickle.load(open('forecast_model_minT.pkl', 'rb'))
 print("working")
 # with open('forecast_model_maxT.pkl', 'rb') as fin:
 #     m2 = pickle.load(fin)
+@app.route("/")
+def trial():
+    return <h1>hello </h1>
 @app.route("agriculture-assistance.herokuapp.com/")
 def predict1():
     # horizon = int(request.json['horizon'])
@@ -24,7 +27,7 @@ def predict1():
 #     ret = data.to_json(orient='records', date_format='iso')
 #     print(ret)
     
-    return "hey"
+    return <h1>hey</h1>
 # running REST interface, port=3000 for direct test
 
 @app.route('agriculture-assistance.herokuapp.com/api',methods=['GET'])
