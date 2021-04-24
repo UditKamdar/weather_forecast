@@ -17,13 +17,18 @@ print("working")
 @app.route('/')
 def home():
     print("working good")
-    return render_template('index.html',prediction_text='The second batting team will win the match')
+    return "<h1>HIIIII</h1>
+#     return render_template('index.html',prediction_text='The second batting team will win the match')
 
 @app.route('/api')
 def home1():
     print("working good")
-    return render_template('index.html',prediction_text='Hello')
-    
+    return "<h3>BYRRRR</h3>"
+#     return render_template('index.html',prediction_text='Hello')
+@app.route('/hi')
+def home12():
+    print("working good")
+    return "HIIII"
 if __name__ == "__main__":
     app.run(debug=True)
 #To use the predict button in our web-app
