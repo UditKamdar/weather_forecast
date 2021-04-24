@@ -35,7 +35,7 @@ def home1():
 def home12():
     print("working good")
     return "HIIII"
-@app.route('/trial')
+@app.route('/trial',methods=['GET'])
 def trial():
     d={}
     d['Query'] = str(request.args['Query'])
