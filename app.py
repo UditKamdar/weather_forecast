@@ -39,10 +39,8 @@ def home1():
     df1_m = pd.DataFrame(forecast_m)
     df2_m = df1_m[['ds','yhat']]
     df2_m['ds'] = df2_m['ds'].astype(str)
-    
-    
     for i in range(len(df2)):
-    if(d['Query'] == df2['ds'][i]):
+     if(d['Query'] == df2['ds'][i]):
         print("Min Temperature : " + str(df2_m['yhat'][i]))
         print("Max Temperature : " + str(df2['yhat'][i]))
         dict={}
