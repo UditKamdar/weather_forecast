@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request ,render_template
 from flask_cors import CORS, cross_origin
 
 #import libraries
-
+const port = Process.env.PORT || 3000
 
 #Initialize the flask App
 app = Flask(__name__)
@@ -20,11 +20,13 @@ def home():
     print("working good")
     return render_template('index.html',prediction_text='The second batting team will win the match')
 
-@app.route('https://agriculture-assistance.herokuapp.com/')
+@app.route('/api')
 def home1():
     print("working good")
     return render_template('index.html',prediction_text='Hello')
-
+    
+if __name__ == "__main__":
+    app.run(debug=True)
 #To use the predict button in our web-app
 # @app.route('/predict',methods=['POST'])
 # def predict():
@@ -41,9 +43,7 @@ def home1():
     
 #     return render_template('index.html', prediction_text='The second batting team will win the match')
    
-         
-if __name__ == "__main__":
-    app.run(debug=True)
+     
 
 # app = Flask(__name__)
 # CORS(app)
