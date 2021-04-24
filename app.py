@@ -30,7 +30,7 @@ def home12():
     print("working good")
     return "HIIII"
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 #To use the predict button in our web-app
 # @app.route('/predict',methods=['POST'])
 # def predict():
