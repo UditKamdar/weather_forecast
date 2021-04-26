@@ -21,7 +21,7 @@ def home():
     return "<h1>HIIIII</h1>"
 #     return render_template('index.html',prediction_text='The second batting team will win the match')
 
-@app.route('/api',methods=['GET'])
+@app.route('/predict',methods=['GET'])
 def home1():
     maxT = pickle.load(open('forecast_model_maxT.pkl', 'rb'))
     minT = pickle.load(open('forecast_model_minT.pkl', 'rb'))
